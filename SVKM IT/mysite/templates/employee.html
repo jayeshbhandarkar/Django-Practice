@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Page</title>
+    <link rel="stylesheet" href="{% static 'employee.css' %}">
+    <style>
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-image: linear-gradient(to right, #71b7e6, #9b59b6);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            margin-left: 10px;  /* Add some space between submit and view list buttons */
+        }
+        .btn:hover {
+            background-image: linear-gradient(to right, #9b59b6, #71b7e6);
+            box-shadow: 0 5px 15px rgba(145, 92, 182, .4);
+        }
+        .button-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+        /* Style the submit button to match the View Employee List button */
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-image: linear-gradient(to right, #71b7e6, #9b59b6);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background-image: linear-gradient(to right, #9b59b6, #71b7e6);
+            box-shadow: 0 5px 15px rgba(145, 92, 182, .4);
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Welcome to Employee Page</h2><br>
+
+        <form action="{% url 'employeeData' %}" method="POST">
+            {% csrf_token %}
+            {% if emp_obj_edit %}
+                <input type="hidden" name="emp_id" value="{{ emp_obj_edit.id }}">
+                <label for="fname"><b>Employee Name:</b></label>
+                <input type="text" id="fname" name="employee_name" value="{{ emp_obj_edit.employeeName }}" required>
+                <br>
+                <label for="lname"><b>Employee Designation:</b></label>
+                <input type="text" id="lname" name="employee_designation" value="{{ emp_obj_edit.employeeDesignation }}" required>
+                <br>
+                <label for="salary"><b>Employee Salary:</b></label>
+                <input type="text" id="salary" name="employee_salary" value="{{ emp_obj_edit.employeeSalary }}" required>
+            {% else %}
+                <label for="fname"><b>Employee Name:</b></label>
+                <input type="text" id="fname" name="employee_name" required>
+                <br>
+                <label for="lname"><b>Employee Designation:</b></label>
+                <input type="text" id="lname" name="employee_designation" required>
+                <br>
+                <label for="salary"><b>Employee Salary:</b></label>
+                <input type="text" id="salary" name="employee_salary" required>
+            {% endif %}
+            <br>
+            <div class="button-container">
+                <input type="submit" value="Submit">
+                <a href="{% url 'employee-list' %}" class="btn">View Employee List</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

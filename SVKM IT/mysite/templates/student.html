@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Marks Details</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="form-container">
+            <h2>Student Marks Details</h2>
+            <form action="{% url 'insert' %}" method="POST">
+                {% csrf_token %}
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="sname"><b>Student Name</b></label>
+                        <input type="text" id="sname" name="sname" placeholder="Enter student name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="srollno"><b>Roll Number</b></label>
+                        <input type="text" id="srollno" name="srollno" placeholder="Enter roll number" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="colname"><b>College Name</b></label>
+                        <input type="text" id="colname" name="colname" placeholder="Enter college name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="colid"><b>College ID</b></label>
+                        <input type="text" id="colid" name="colid" placeholder="Enter college ID" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phy"><b>Physics</b></label>
+                        <input type="number" id="phy" name="phy" placeholder="Enter marks" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="che"><b>Chemistry</b></label>
+                        <input type="number" id="che" name="che" placeholder="Enter marks" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="mat"><b>Maths</b></label>
+                        <input type="number" id="mat" name="mat" placeholder="Enter marks" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="eng"><b>English</b></label>
+                        <input type="number" id="eng" name="eng" placeholder="Enter marks" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="hin"><b>Hindi</b></label>
+                        <input type="number" id="hin" name="hin" placeholder="Enter marks" required>
+                    </div>
+                </div>
+                <button type="submit" class="submit-btn">Submit</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .card {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+            padding: 30px;
+            width: 350px;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px 10px 0 0;
+            margin: -30px -30px 20px -30px;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .info {
+            margin-bottom: 15px;
+        }
+        .label {
+            font-weight: bold;
+            color: #555;
+        }
+        .value {
+            color: #333;
+            font-size: 18px;
+        }
+        .highlight {
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="header">
+            <h1>Student Information</h1>
+        </div>
+        <div class="info">
+            <span class="label">Student Name:</span>
+            <div class="value highlight">{{name}}</div>
+        </div>
+        <div class="info">
+            <span class="label">Branch Name:</span>
+            <div class="value highlight">{{b_name}}</div>
+        </div>
+        <div class="info">
+            <span class="label">College Name:</span>
+            <div class="value highlight">{{c_name}}</div>
+        </div>
+        <div class="info">
+            <span class="label">Student Roll No:</span>
+            <div class="value highlight">{{roll_no}}</div>
+        </div>
+        <div class="info">
+            <span class="label">Student ID:</span>
+            <div class="value highlight">{{student_id}}</div>
+        </div>
+        <div class="info" style="text-align: center; margin-top: 20px; font-style: italic; color: #666;">
+            ~ I am a Final Year Student
+        </div>
+    </div>
+</body>
+</html>
